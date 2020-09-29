@@ -1,3 +1,4 @@
+# create database and tables before running "python main.py"
 from database import cursor, db
 
 def add_log(text,user):
