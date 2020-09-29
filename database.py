@@ -1,10 +1,10 @@
 import mysql.connector
-from mysql.connector import errorcode
 
 config = {
     'user': 'root',
     'password': '',
-    'host': 'localhost'
+    'host': 'localhost',
+    'database': 'myPyDB'
 }
 
 db = mysql.connector.connect(**config)
