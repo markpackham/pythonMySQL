@@ -1,3 +1,6 @@
+# Python with MySQL learned from https://www.youtube.com/watch?v=BHwgnGEhYG8
+# run "python setup.py" to create the database before doing anything
+# make sure the MySQL server is running
 import mysql.connector
 from mysql.connector import errorcode
 from database import cursor
