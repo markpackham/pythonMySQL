@@ -7,11 +7,6 @@ def add_log(text,user):
     log_id = cursor.lastrowid
     print("Added log {}".format(log_id))
 
-# add_log("This is log one", "Mark")
-# add_log("This is log two", "Alice")
-# add_log("This is log three", "Bob")
-
-
 def get_logs():
     sql = ("SELECT * FROM logs ORDER BY created DESC")
     cursor.execute(sql)
@@ -28,14 +23,29 @@ def get_log(id):
     for row in result:
         print(row)
 
-get_log(1)
-
-
 def update_log(id, text):
     sql = ("UPDATE logs SET text = %s WHERE id = %s")
     cursor.execute(sql, (text, id))
     db.commit()
     print("Log {} updated".format(id))
 
-update_log(2, 'I have been UPDATED!!!')
+def delete_all():
+    sql = ("DELETE FROM logs")
+    cursor.execute(sql)
+    db.commit()
+    print("All logs deleted")
+
+def delete_log(id):
+    sql = ("DELETE FROM logs WHERE id = %s")
+    cursor.execute(sql, (id,))
+    db.commit()
+    print("Log {} deleted".format(id))
+
+# add_log("This is log one", "Mark")
+# add_log("This is log two", "Alice")
+# add_log("This is log three", "Bob")
+# delete_all()
+# get_log(1)
+# update_log(2, 'I have been UPDATED!!!')
+# delete_log(3)
 get_logs()
